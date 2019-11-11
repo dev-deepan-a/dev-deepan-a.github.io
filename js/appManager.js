@@ -554,7 +554,7 @@ var grouts = [{
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Ruby Red",
-        "colorName_Russian": "White",
+        "colorName_Russian": "",
         "subName": "UltraEpoxy Premium ",
         "value": "#BA0C2F",
         "className": "CE89"
@@ -638,6 +638,11 @@ var grouts = [{
     },
 ];
 
+var wallTileMenu = null;
+var floorTileMenu = null;
+var wallGroutMenu = null;
+var floorGroutMenu = null;
+
 function initializeApp() {
 //    loadFloorGrouts("Kitchen");
 //    loadWallGrouts();
@@ -648,72 +653,34 @@ function initializeApp() {
 // Function to load the grouts
 function loadFloorGrouts(roomName)
 {
-    var floorGroutMenu = document.getElementById('floor-btn-group');
-
-    var currentSelectedLanguage = document.getElementById("language-dropdown").value;
+    if(floorGroutMenu == null)
+    {
+        floorGroutMenu = document.getElementById('floor-btn-group');
+    }
 
     while (floorGroutMenu.firstChild)
     {
         floorGroutMenu.removeChild(floorGroutMenu.firstChild);
     }
 
-    for (i = 0; i < grouts.length; i++)
-    {
-        var btn = document.createElement("BUTTON"); // Create a <button> element
-        btn.classList.add('btn')
-        btn.classList.add('floor-grout-btn')
-        btn.style.backgroundColor = grouts[i].value;
-
-        var currentHeaderName = getColorNameByLanguage(currentSelectedLanguage);
-        btn.innerHTML = currentHeaderName; // Insert text
-        if (i == 0)
-        {
-            btn.classList.add('active');
-            changeFloorMenuHeaderName(currentHeaderName);
-        }
-
-        var buttonClass = document.createElement("DIV");
-        buttonClass.innerHTML = grouts[i].className;
-        buttonClass.classList.add('button-description');
-        btn.appendChild(buttonClass);
-
-
-        btn.onclick = function ()
-        {
-            changeFloorGrout(this);
-            changeFloorMenuHeaderName(this.innerHTML);
-        }
-
-        floorGroutMenu.appendChild(btn);
-    }
-}
-
-function loadWallGrouts(roomName)
-{
-    var wallGroutMenu = document.getElementById('wall-grout-btn-group');
-
     var currentSelectedLanguage = document.getElementById("language-dropdown").value;
 
-    while (wallGroutMenu.firstChild)
+    for (i = 0; i < grouts.length; i++)
     {
-        console.log("deleting");
-        wallGroutMenu.removeChild(wallGroutMenu.firstChild);
-    }
-
-    if(roomName != "Exterior01" || roomName != "Living01")
-    {
-        for (i = 0; i < grouts.length; i++)
+        var currentHeaderName = getColorNameByLanguage(currentSelectedLanguage, i);
+        if(currentHeaderName != " ")
         {
             var btn = document.createElement("BUTTON"); // Create a <button> element
             btn.classList.add('btn')
-            btn.classList.add('wall-grout-btn')
+            btn.classList.add('floor-grout-btn')
             btn.style.backgroundColor = grouts[i].value;
 
-            var currentHeaderName = getColorNameByLanguage(currentSelectedLanguage);
             btn.innerHTML = currentHeaderName; // Insert text
-            if (i == 0) {
+            if (i == 0)
+            {
                 btn.classList.add('active');
-                changeWallMenuHeaderName(currentHeaderName);
+                changeFloorMenuHeaderName(currentHeaderName);
+                changeFloorGrout(btn);
             }
 
             var buttonClass = document.createElement("DIV");
@@ -721,12 +688,64 @@ function loadWallGrouts(roomName)
             buttonClass.classList.add('button-description');
             btn.appendChild(buttonClass);
 
+
             btn.onclick = function ()
             {
-                changeWallGrout(this);
-                changeWallMenuHeaderName(this.innerHTML);
+                changeFloorGrout(this);
+                changeFloorMenuHeaderName(this.innerHTML);
             }
-            wallGroutMenu.appendChild(btn);
+
+            floorGroutMenu.appendChild(btn);
+        }
+    }
+}
+
+function loadWallGrouts(roomName)
+{
+    if(wallGroutMenu == null)
+    {
+        wallGroutMenu = document.getElementById('wall-grout-btn-group');
+    }
+
+    while (wallGroutMenu.firstChild)
+    {
+        wallGroutMenu.removeChild(wallGroutMenu.firstChild);
+    }
+
+    var currentSelectedLanguage = document.getElementById("language-dropdown").value;
+
+    if(roomName != "Exterior01" && roomName != "Living01")
+    {
+        for (i = 0; i < grouts.length; i++)
+        {
+            var currentHeaderName = getColorNameByLanguage(currentSelectedLanguage, i);
+            if(currentHeaderName != " ")
+            {
+                var btn = document.createElement("BUTTON"); // Create a <button> element
+                btn.classList.add('btn')
+                btn.classList.add('wall-grout-btn')
+                btn.style.backgroundColor = grouts[i].value;
+
+                btn.innerHTML = currentHeaderName; // Insert text
+                if (i == 0) {
+                    btn.classList.add('active');
+                    changeWallMenuHeaderName(currentHeaderName);
+                    changeWallGrout(btn);
+                }
+
+                var buttonClass = document.createElement("DIV");
+                console.log(grouts[i].className);
+                buttonClass.innerHTML = grouts[i].className;
+                buttonClass.classList.add('button-description');
+                btn.appendChild(buttonClass);
+
+                btn.onclick = function ()
+                {
+                    changeWallGrout(this);
+                    changeWallMenuHeaderName(this.innerHTML);
+                }
+                wallGroutMenu.appendChild(btn);
+            }
         }
     }
 }
@@ -740,7 +759,7 @@ function loadWallTiles(room)
         wallTileMenu.removeChild(wallTileMenu.firstChild);
     }
 
-    if(roomName != "Exterior01")
+    if(room != "Exterior01" && room != "Living01")
     {
         for (i = 0; i < 5; i++)
         {
@@ -749,86 +768,46 @@ function loadWallTiles(room)
             btn.classList.add('wall-tile-btn')
             btn.setAttribute("tileName", "WallTile"+i)
             btn.setAttribute("roomName", room)
-            btn.style.backgroundImage = "url('src/thumbnails/wall_tiles/" + roomName + "/WallTile" + i + ".jpg')";
+            btn.style.backgroundImage = "url('src/thumbnails/wall_tiles/" + room + "/WallTile" + i + ".jpg')";
             if (i == 0)
             {
                 btn.classList.add('active');
-                // console.log(grouts[0].colorName);
-//                changeWallTileMenuHeaderName(grouts[0].colorName_English);
             }
             btn.onclick = function ()
             {
                 changeWallTile(this);
-//                changeWallTileMenuHeaderName(this.innerHTML);
             }
             wallTileMenu.appendChild(btn);
         }
     }
 }
 
-/*function loadFloorTiles() {
+function loadFloorTiles(room)
+{
     var floorTileMenu = document.getElementById('floor-tile-btn-group');
-    for (i = 0; i < 10; i++) {
-        var btn = document.createElement("BUTTON"); // Create a <button> element
-        btn.innerHTML = grouts[i].colorName; // Insert text
-        btn.classList.add('btn')
-        btn.classList.add('floor-tile-btn')
-        btn.style.backgroundColor = grouts[i].value;
-        if (i == 0) {
-            btn.classList.add('active');
-            // console.log(grouts[0].colorName);
-            changeFloorTileMenuHeaderName(grouts[0].colorName);
-        }
-        floorTileMenu.appendChild(btn);
-    }
 
-    var buttons = floorTileMenu.getElementsByTagName("BUTTON");
-    for (i = 0; i < 10; i++) {
-        var btn = buttons[i];
-        buttons[i].onclick = function () {
-            changeFloorTile(this);
-            changeFloorTileMenuHeaderName(this.innerHTML);
-        }
-    }
-
-    // changeFloorGrout(floorGroutMenu.firstChild);
-}*/
-
-function loadFloorTiles(room) {
-    console.log(room)
-    var floorTileMenu = document.getElementById('floor-tile-btn-group');
     while (floorTileMenu.firstChild)
     {
         floorTileMenu.removeChild(floorTileMenu.firstChild);
     }
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++)
+    {
         var btn = document.createElement("BUTTON"); // Create a <button> element
-        /*btn.innerHTML = grouts[i].colorName;*/ // Insert text
         btn.classList.add('btn')
         btn.classList.add('floor-tile-btn')
         btn.setAttribute("tileName", "FloorTile"+i)
         btn.setAttribute("roomName", room)
         btn.style.backgroundImage = "url('src/thumbnails/floor_tiles/" + roomName + "/FloorTile" + i + ".jpg')";
-        //btn.style.backgroundColor = grouts[i].value;
 
         if (i == 0) {
             btn.classList.add('active');
-            // console.log(grouts[0].colorName);
-//            changeFloorTileMenuHeaderName(grouts[0].colorName);
+        }
+        btn.onclick = function()
+        {
+            changeFloorTile(room, this);
         }
         floorTileMenu.appendChild(btn);
     }
-
-    var buttons = floorTileMenu.getElementsByTagName("BUTTON");
-    for (i = 0; i < 5; i++) {
-        var btn = buttons[i];
-        buttons[i].onclick = function () {
-            changeFloorTile(room, this);
-//            changeFloorTileMenuHeaderName(this.innerHTML);
-        }
-    }
-
-    // changeFloorGrout(floorGroutMenu.firstChild);
 }
 
 function changeFloorGrout(currentButton) {
@@ -842,7 +821,8 @@ function changeFloorGrout(currentButton) {
     changeFloorAndWallGroutImageColor(floorGroutCanvas, currentButton);
 }
 
-function changeFloorAndWallGroutImageColor(groutCanvas, currentBtn){
+function changeFloorAndWallGroutImageColor(groutCanvas, currentBtn)
+{
     var currentSelectedGroutColor = currentBtn.style.backgroundColor;
     var currentSelectedGroutColor = currentSelectedGroutColor.substring(4, currentSelectedGroutColor.length-1)
          .replace(/ /g, '')
@@ -850,6 +830,8 @@ function changeFloorAndWallGroutImageColor(groutCanvas, currentBtn){
 
     var groutCanvasCtx = groutCanvas.getContext("2d");
     var imgData = groutCanvasCtx.getImageData(0, 0, groutCanvas.width, groutCanvas.height);
+
+    console.log("changing grout color");
 
     for (var i = 0; i < imgData.data.length; i+= 4)
     {
@@ -866,7 +848,6 @@ function changeFloorAndWallGroutImageColor(groutCanvas, currentBtn){
 }
 
 function changeFloorMenuHeaderName(headerName) {
-    console.log(headerName);
     var header = document.getElementById("floor-grout-menu-header");
     if (header) {
         headerName = headerName.replace('CE40', '');
@@ -889,7 +870,6 @@ function changeWallGrout(currentButton) {
 
 
 function changeWallMenuHeaderName(headerName) {
-    console.log(headerName);
     var header = document.getElementById("wall-grout-menu-header");
     if (header) {
         headerName = headerName.replace('CE40', '');
@@ -914,7 +894,6 @@ function changeWallTile(currentButton) {
 
 
 function changeWallTileMenuHeaderName(headerName) {
-    console.log(headerName);
     var header = document.getElementById("wall-tile-menu-header");
     if (header) {
         headerName = headerName.replace('CE40', '');
@@ -939,7 +918,6 @@ function changeFloorTile(room, currentButton) {
 
 
 function changeFloorTileMenuHeaderName(headerName) {
-    console.log(headerName);
     var header = document.getElementById("floor-tile-menu-header");
     if (header) {
         headerName = headerName.replace('CE40', '');
@@ -953,7 +931,6 @@ function changeFloorAndWallTileImage(canvasCtx, currentButton)
 {
     var tileName = currentButton.getAttribute("tileName");
     var room = currentButton.getAttribute("roomName");
-    console.log("src/img/" + room + "/" + tileName + "_L.png");
 
     var tileImage = new Image();
     tileImage.onload = function () {
@@ -973,27 +950,26 @@ function changeFloorAndWallTileImage(canvasCtx, currentButton)
     }
 }
 
-function getColorNameByLanguage(language)
+function getColorNameByLanguage(language, index)
 {
     var colorName;
     switch(language)
     {
         case "German":
-            colorName = grouts[i].colorName_German;
+            colorName = grouts[index].colorName_German;
             break;
         case "Lithuanian":
-            colorName = grouts[i].colorName_Lithuanian;
+            colorName = grouts[index].colorName_Lithuanian;
             break;
         case "Estonian":
-            colorName = grouts[i].colorName_Estonian;
+            colorName = grouts[index].colorName_Estonian;
             break;
         case "Russian":
-            colorName = grouts[i].colorName_Russian;
+            colorName = grouts[index].colorName_Russian;
             break;
         default:
-            colorName = grouts[i].colorName_English;
+            colorName = grouts[index].colorName_English;
     }
-    console.log(colorName);
     return colorName;
 }
 

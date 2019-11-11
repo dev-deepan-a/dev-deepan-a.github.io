@@ -8,19 +8,22 @@ function resizeCanvasBasedOnWindowSize() {
     }
     switch (roomIndex) {
         case 0:
-            roomName = "Exterior";
+            roomName = "Exterior01";
             break;
         case 1:
-            roomName = "Kitchen";
-            break;
-        case 2:
             roomName = "Kitchen01";
             break;
+        case 2:
+            roomName = "Kitchen02";
+            break;
         case 3:
-            roomName = "Living";
+            roomName = "Living01";
+            break;
+        case 4:
+            roomName = "Bath01";
             break;
     }
-    var canvas = document.getElementById("layer1");
+    var canvas = document.getElementById("baseLayer");
     var ctx = canvas.getContext("2d");
     var image = new Image();
     // ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -38,9 +41,9 @@ function resizeCanvasBasedOnWindowSize() {
         ctx.drawImage(image, 0, 0);
     }
     if (window.innerWidth >= 640) {
-        image.src = "src/img/" + roomName + "_L.jpg"
+        image.src = "src/img/" + roomName + "/Base_L.png"
     } else if (window.innerWidth <= 640) {
-        image.src = "src/img/" + roomName + "_P.jpg"
+        image.src = "src/img/" + roomName + "/Base_P.png"
     }
 
     resizeSubMenu('floor-grout-menu');
