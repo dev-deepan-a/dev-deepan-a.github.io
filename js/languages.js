@@ -1,6 +1,7 @@
 var grouts = [{
         "id": 1,
         "colorName_English": "White",
+        "colorName_Latvian": "White",
         "colorName_Lithuanian": "White",
         "colorName_Estonian": "White",
         "colorName_German": "White",
@@ -12,6 +13,7 @@ var grouts = [{
     {
         "id": 39,
         "colorName_English": "Pergamon",
+        "colorName_Latvian": "Pergamon",
         "colorName_Lithuanian": "Pergamon",
         "colorName_Estonian": "Pergamon",
         "colorName_German": "Pergamon",
@@ -23,6 +25,7 @@ var grouts = [{
     {
         "id": 3,
         "colorName_English": "Carrara",
+        "colorName_Latvian": "Carrara",
         "colorName_Lithuanian": "Carrara",
         "colorName_Estonian": "Carrara",
         "colorName_German": " ",
@@ -34,6 +37,7 @@ var grouts = [{
     {
         "id": 4,
         "colorName_English": "Silver",
+        "colorName_Latvian": "Silver",
         "colorName_Lithuanian": "Silver",
         "colorName_Estonian": "Silver",
         "colorName_German": "Silver",
@@ -45,6 +49,7 @@ var grouts = [{
     {
         "id": 10,
         "colorName_English": "Manhattan",
+        "colorName_Latvian": "Manhattan",
         "colorName_Lithuanian": "Manhattan",
         "colorName_Estonian": "Manhattan",
         "colorName_German": "Manhattan",
@@ -56,6 +61,7 @@ var grouts = [{
     {
         "id": 7,
         "colorName_English": "Gray",
+        "colorName_Latvian": "Gray",
         "colorName_Lithuanian": "Gray",
         "colorName_Estonian": "Gray",
         "colorName_German": "Gray",
@@ -67,6 +73,7 @@ var grouts = [{
     {
         "id": 12,
         "colorName_English": "Cementgray",
+        "colorName_Latvian": "Cementgray",
         "colorName_Lithuanian": "Cementgray",
         "colorName_Estonian": "Cementgray",
         "colorName_German": "Cementgray",
@@ -78,6 +85,7 @@ var grouts = [{
     {
         "id": 13,
         "colorName_English": "Antracite",
+        "colorName_Latvian": "Antracite",
         "colorName_Lithuanian": "Antracite",
         "colorName_Estonian": "Antracite",
         "colorName_German": "Anthracite",
@@ -89,6 +97,7 @@ var grouts = [{
     {
         "id": 16,
         "colorName_English": "Graphite",
+        "colorName_Latvian": "Graphite,
         "colorName_Lithuanian": "Graphite",
         "colorName_Estonian": "Graphite",
         "colorName_German": " ",
@@ -100,6 +109,7 @@ var grouts = [{
     {
         "id": 18,
         "colorName_English": "Coal",
+        "colorName_Latvian": "Goal",
         "colorName_Lithuanian": "Coal",
         "colorName_Estonian": "coal",
         "colorName_German": "Coal",
@@ -111,6 +121,7 @@ var grouts = [{
     {
         "id": 79,
         "colorName_English": "Crocus",
+        "colorName_Latvian": "Crocus",
         "colorName_Lithuanian": "Crocus",
         "colorName_Estonian": "Crocus",
         "colorName_German": " ",
@@ -122,6 +133,7 @@ var grouts = [{
     {
         "id": 80,
         "colorName_English": "Sky",
+        "colorName_Latvian": "Sky",
         "colorName_Lithuanian": "Sky",
         "colorName_Estonian": "Sky",
         "colorName_German": " ",
@@ -133,6 +145,7 @@ var grouts = [{
     {
         "id": 64,
         "colorName_English": "Mint",
+        "colorName_Latvian": "Mint",
         "colorName_Lithuanian": "Mint",
         "colorName_Estonian": "Mint",
         "colorName_German": " ",
@@ -144,6 +157,7 @@ var grouts = [{
     {
         "id": 67,
         "colorName_English": "Kiwi",
+        "colorName_Latvian": "Kiwi",
         "colorName_Lithuanian": "Kiwi",
         "colorName_Estonian": "Kiwi",
         "colorName_German": " ",
@@ -155,6 +169,7 @@ var grouts = [{
     {
         "id": 90,
         "colorName_English": "Lila",
+        "colorName_Latvian": "Lila",
         "colorName_Lithuanian": "Lila",
         "colorName_Estonian": "Lila",
         "colorName_German": " ",
@@ -166,6 +181,7 @@ var grouts = [{
     {
         "id": 88,
         "colorName_English": "Ocean",
+        "colorName_Latvian": "Ocean",
         "colorName_Lithuanian": "Ocean",
         "colorName_Estonian": "Ocean",
         "colorName_German": " ",
@@ -177,6 +193,7 @@ var grouts = [{
     {
         "id": 70,
         "colorName_English": "Amazon",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": " ",
@@ -188,6 +205,7 @@ var grouts = [{
     {
         "id": 40,
         "colorName_English": "Jasmine",
+        "colorName_Latvian": "Jasmine",
         "colorName_Lithuanian": "Jasmine",
         "colorName_Estonian": "Jasmine",
         "colorName_German": "Jasmine",
@@ -199,6 +217,7 @@ var grouts = [{
     {
         "id": 22,
         "colorName_English": "Melba",
+        "colorName_Latvian": "Melba",
         "colorName_Lithuanian": "Melba",
         "colorName_Estonian": "Melba",
         "colorName_German": " ",
@@ -210,6 +229,7 @@ var grouts = [{
     {
         "id": 41,
         "colorName_English": "Natura",
+        "colorName_Latvian": "Natura",
         "colorName_Lithuanian": "Natura",
         "colorName_Estonian": "Natura",
         "colorName_German": "Natura",
@@ -221,6 +241,7 @@ var grouts = [{
     {
         "id": 43,
         "colorName_English": "Bahama",
+        "colorName_Latvian": "Bahama",
         "colorName_Lithuanian": "Bahama",
         "colorName_Estonian": "Bahama",
         "colorName_German": "Bahama",
@@ -232,6 +253,7 @@ var grouts = [{
     {
         "id": 46,
         "colorName_English": "Caramel",
+        "colorName_Latvian": "Caramel",
         "colorName_Lithuanian": "Caramel",
         "colorName_Estonian": "Caramel",
         "colorName_German": "Caramel",
@@ -243,6 +265,7 @@ var grouts = [{
     {
         "id": 44,
         "colorName_English": "Toffi",
+        "colorName_Latvian": "Toffi",
         "colorName_Lithuanian": "Toffi",
         "colorName_Estonian": "Toffi",
         "colorName_German": " ",
@@ -254,6 +277,7 @@ var grouts = [{
     {
         "id": 47,
         "colorName_English": "Siena",
+        "colorName_Latvian": "Siena",
         "colorName_Lithuanian": "Siena",
         "colorName_Estonian": "Siena",
         "colorName_German": "Siena",
@@ -265,6 +289,7 @@ var grouts = [{
     {
         "id": 52,
         "colorName_English": "Cocoa",
+        "colorName_Latvian": "Cocoa",
         "colorName_Lithuanian": "Cocoa",
         "colorName_Estonian": "Cocoa",
         "colorName_German": " ",
@@ -276,6 +301,7 @@ var grouts = [{
     {
         "id": 55,
         "colorName_English": "Terra",
+        "colorName_Latvian": "Terra",
         "colorName_Lithuanian": "Terra",
         "colorName_Estonian": "Terra",
         "colorName_German": "Terra",
@@ -287,6 +313,7 @@ var grouts = [{
     {
         "id": 58,
         "colorName_English": "Chocolate",
+        "colorName_Latvian": "Chocolate",
         "colorName_Lithuanian": "Chocolate",
         "colorName_Estonian": "Chocolate",
         "colorName_German": "Chocolate",
@@ -298,6 +325,7 @@ var grouts = [{
     {
         "id": 31,
         "colorName_English": "Rosa",
+        "colorName_Latvian": "Rosa",
         "colorName_Lithuanian": "Rosa",
         "colorName_Estonian": "Rosa",
         "colorName_German": " ",
@@ -309,6 +337,7 @@ var grouts = [{
     {
         "id": 34,
         "colorName_English": "Pink",
+        "colorName_Latvian": "Pink",
         "colorName_Lithuanian": "Pink",
         "colorName_Estonian": "Pink",
         "colorName_German": " ",
@@ -320,6 +349,7 @@ var grouts = [{
     {
         "id": 28,
         "colorName_English": "Cream",
+        "colorName_Latvian": "Cream",
         "colorName_Lithuanian": "Cream",
         "colorName_Estonian": "Cream",
         "colorName_German": " ",
@@ -331,6 +361,7 @@ var grouts = [{
     {
         "id": 25,
         "colorName_English": "Sahara",
+        "colorName_Latvian": "Sahara",
         "colorName_Lithuanian": "Sahara",
         "colorName_Estonian": "Sahara",
         "colorName_German": " ",
@@ -342,6 +373,7 @@ var grouts = [{
     {
         "id": 49,
         "colorName_English": "Clinker",
+        "colorName_Latvian": "Clinker",
         "colorName_Lithuanian": "Clinker",
         "colorName_Estonian": "Clinker",
         "colorName_German": " ",
@@ -353,6 +385,7 @@ var grouts = [{
     {
         "id": 37,
         "colorName_English": "Chili",
+        "colorName_Latvian": "Chili",
         "colorName_Lithuanian": "Chili",
         "colorName_Estonian": "Chili",
         "colorName_German": " ",
@@ -364,6 +397,7 @@ var grouts = [{
     {
         "id": 102,
         "colorName_English": "Marble White",
+        "colorName_Latvian": "Marble White",
         "colorName_Lithuanian": "Marble White",
         "colorName_Estonian": "Marble White",
         "colorName_German": " ",
@@ -375,6 +409,7 @@ var grouts = [{
     {
         "id": 111,
         "colorName_English": "Iron Grey",
+        "colorName_Latvian": "Iron Grey",
         "colorName_Lithuanian": "Iron Grey",
         "colorName_Estonian": "Iron Grey",
         "colorName_German": " ",
@@ -386,6 +421,7 @@ var grouts = [{
     {
         "id": 145,
         "colorName_English": "Almondtree brown",
+        "colorName_Latvian": "Almondtree brown",
         "colorName_Lithuanian": "Almondtree brown",
         "colorName_Estonian": "Almondtree brown",
         "colorName_German": " ",
@@ -397,6 +433,7 @@ var grouts = [{
     {
         "id": 191,
         "colorName_English": "Brown",
+        "colorName_Latvian": "Night glow",
         "colorName_Lithuanian": "Night glow",
         "colorName_Estonian": "Night glow",
         "colorName_German": " ",
@@ -408,6 +445,7 @@ var grouts = [{
     {
         "id": 195,
         "colorName_English": "Platinum",
+        "colorName_Latvian": "Ice glow",
         "colorName_Lithuanian": "Ice glow",
         "colorName_Estonian": "Ice glow",
         "colorName_German": " ",
@@ -419,6 +457,7 @@ var grouts = [{
     {
         "id": 199,
         "colorName_English": "Luminous Light",
+        "colorName_Latvian": "Luminous Light",
         "colorName_Lithuanian": "Luminous Light",
         "colorName_Estonian": "Luminous light",
         "colorName_German": " ",
@@ -430,6 +469,7 @@ var grouts = [{
     {
         "id": 801,
         "colorName_English": "Crystal White",
+        "colorName_Latvian": "Crystal White",
         "colorName_Lithuanian": "Crystal White",
         "colorName_Estonian": "Crystal White",
         "colorName_German": "Crystal White",
@@ -441,6 +481,7 @@ var grouts = [{
     {
         "id": 809,
         "colorName_English": "Concrete Gray",
+        "colorName_Latvian": "Concrete Gray",
         "colorName_Lithuanian": "Concrete Gray",
         "colorName_Estonian": "Concrete Gray",
         "colorName_German": "Concrete Gray",
@@ -452,6 +493,7 @@ var grouts = [{
     {
         "id": 807,
         "colorName_English": "Pearl Gray",
+        "colorName_Latvian": "Pearl Gray",
         "colorName_Lithuanian": "Pearl Gray",
         "colorName_Estonian": "Pearl Gray",
         "colorName_German": "Pearl Gray",
@@ -463,6 +505,7 @@ var grouts = [{
     {
         "id": 814,
         "colorName_English": "Natural Quartz",
+        "colorName_Latvian": "Natural Quartz",
         "colorName_Lithuanian": "Natural Quartz",
         "colorName_Estonian": "Natural Quartz",
         "colorName_German": "Natural Quartz",
@@ -474,6 +517,7 @@ var grouts = [{
     {
         "id": 817,
         "colorName_English": "Solid Slate",
+        "colorName_Latvian": "Solid Slate",
         "colorName_Lithuanian": "Solid Slate",
         "colorName_Estonian": "Solid Slate",
         "colorName_German": "Solid Slate",
@@ -485,6 +529,7 @@ var grouts = [{
     {
         "id": 859,
         "colorName_English": "Smoked Topaz",
+        "colorName_Latvian": "Smoked Topaz",
         "colorName_Lithuanian": "Smoked Topaz",
         "colorName_Estonian": "Smoked Topaz",
         "colorName_German": "Smoked Topaz",
@@ -496,6 +541,7 @@ var grouts = [{
     {
         "id": 844,
         "colorName_English": "Toffi",
+        "colorName_Latvian": "Toffi",
         "colorName_Lithuanian": "Toffi",
         "colorName_Estonian": "Toffi",
         "colorName_German": "Toffi",
@@ -507,6 +553,7 @@ var grouts = [{
     {
         "id": 840,
         "colorName_English": "Jasmine",
+        "colorName_Latvian": "Jasmine",
         "colorName_Lithuanian": "Jasmine",
         "colorName_Estonian": "Jasmine",
         "colorName_German": "Jasmine",
@@ -518,6 +565,7 @@ var grouts = [{
     {
         "id": 881,
         "colorName_English": "Moonstone Blue",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Moonstone Blue",
@@ -529,6 +577,7 @@ var grouts = [{
     {
         "id": 887,
         "colorName_English": "Saphire Blue",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Saphire Blue",
@@ -540,6 +589,7 @@ var grouts = [{
     {
         "id": 871,
         "colorName_English": "Emerald Green",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Emerald Green",
@@ -551,6 +601,7 @@ var grouts = [{
     {
         "id": 838,
         "colorName_English": "Ruby Red",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Ruby Red",
@@ -562,6 +613,7 @@ var grouts = [{
     {
         "id": 800,
         "colorName_English": "Transparent",
+        "colorName_Latvian": " ",
         "colorName_Lithuanian": " ",
         "colorName_Estonian": " ",
         "colorName_German": "Transparent",
@@ -573,6 +625,7 @@ var grouts = [{
     {
         "id": 701,
         "colorName_English": "Crystal White",
+        "colorName_Latvian": "Crystal White",
         "colorName_Lithuanian": "Crystal White",
         "colorName_Estonian": "Crystal White",
         "colorName_German": "Crystal White",
@@ -584,6 +637,7 @@ var grouts = [{
     {
         "id": 710,
         "colorName_English": "Light Gray",
+        "colorName_Latvian": "Light Gray",
         "colorName_Lithuanian": "Light Gray",
         "colorName_Estonian": "Light Gray",
         "colorName_German": "Light Gray",
@@ -595,6 +649,7 @@ var grouts = [{
     {
         "id": 716,
         "colorName_English": "Graphite",
+        "colorName_Latvian": "Graphite",
         "colorName_Lithuanian": "Graphite",
         "colorName_Estonian": "Graphite",
         "colorName_German": "Graphite",
@@ -606,6 +661,7 @@ var grouts = [{
     {
         "id": 743,
         "colorName_English": "Bahama",
+        "colorName_Latvian": "Bahama",
         "colorName_Lithuanian": "Bahama",
         "colorName_Estonian": "Bahama",
         "colorName_German": "Bahama",
@@ -617,6 +673,7 @@ var grouts = [{
     {
         "id": 723,
         "colorName_English": "Sandstone",
+        "colorName_Latvian": "Sandstone",
         "colorName_Lithuanian": "Sandstone",
         "colorName_Estonian": "Sandstone",
         "colorName_German": "Sandstone",
@@ -628,6 +685,7 @@ var grouts = [{
     {
         "id": 742,
         "colorName_English": "Alabaster",
+        "colorName_Latvian": "Alabaster",
         "colorName_Lithuanian": "Alabaster",
         "colorName_Estonian": "Alabaster",
         "colorName_German": "Alabaster",

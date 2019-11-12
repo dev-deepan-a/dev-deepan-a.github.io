@@ -41,46 +41,75 @@
       </form>
     </div> -->
     <div class="menu" id="menu">
-      <input class="menu-buttons" type="image" id="grouts_button" src="src/img/ui/floor_grout_default.png" alt="Submit"
+      <!--<input class="menu-buttons" type="image" id="grouts_button" src="src/img/ui/floor_grout_default.png" alt="Submit"-->
+        <!--onclick="toggleGroutMenu(this,'floor-grout-menu')" onload="">-->
+      <!--<input class="menu-buttons" type="image" id="wall-grouts_button" src="src/img/ui/wall_grout_default.png"-->
+        <!--alt="Submit" onclick="toggleWallGroutMenu(this,'wall-grout-menu')" onload="">-->
+      <!--<input class="menu-buttons" type="image" id="wall_tile_button" src="src/img/ui/wall_tile_default.png" alt="Submit"-->
+        <!--onclick="toggleWallTileMenu(this,'wall-tile-menu')">-->
+      <!--<input class="menu-buttons" type="image" id="floor_tile_button" src="src/img/ui/floor_tile_default.png"-->
+        <!--alt="Submit" onclick="toggleFloorTileMenu(this,'floor-tile-menu')">-->
+      <!--<input class="menu-buttons" type="image" id="room_button" src="src/img/ui/rooms_default.png" alt="Submit"-->
+        <!--onclick="toggleRoomMenu(this,'rooms')">-->
+      <div class="menu-buttons">
+        <span id="floorGroutText" class="image-text">Floor Grout</span>
+        <input type="image" id="grouts_button" src="src/img/ui/floor_grout_default.png" alt="Submit"
         onclick="toggleGroutMenu(this,'floor-grout-menu')" onload="">
-      <input class="menu-buttons" type="image" id="wall-grouts_button" src="src/img/ui/wall_grout_default.png"
-        alt="Submit" onclick="toggleWallGroutMenu(this,'wall-grout-menu')" onload="">
-      <input class="menu-buttons" type="image" id="wall_tile_button" src="src/img/ui/wall_tile_default.png" alt="Submit"
-        onclick="toggleWallTileMenu(this,'wall-tile-menu')">
-      <input class="menu-buttons" type="image" id="floor_tile_button" src="src/img/ui/floor_tile_default.png"
+      </div>
+      <div class="menu-buttons">
+        <span id="wallGroutText" class="image-text">Wall Grout</span>
+        <input type="image" id="wall-grouts_button" src="src/img/ui/wall_grout_default.png"
+          alt="Submit" onclick="toggleWallGroutMenu(this,'wall-grout-menu')" onload="">
+      </div>
+      <div class="menu-buttons">
+        <span id="wallTileText" class="image-text">Wall Tile</span>
+        <input type="image" id="wall_tile_button" src="src/img/ui/wall_tile_default.png" alt="Submit"
+          onclick="toggleWallTileMenu(this,'wall-tile-menu')">
+      </div>
+      <div class="menu-buttons">
+        <span id="floorTileText" class="image-text">Floor Tile</span>
+        <input type="image" id="floor_tile_button" src="src/img/ui/floor_tile_default.png"
         alt="Submit" onclick="toggleFloorTileMenu(this,'floor-tile-menu')">
-      <input class="menu-buttons" type="image" id="room_button" src="src/img/ui/rooms_default.png" alt="Submit"
+      </div>
+      <div class="menu-buttons">
+        <span id="roomsText" class="image-text">Rooms</span>
+        <input type="image" id="room_button" src="src/img/ui/rooms_default.png" alt="Submit"
         onclick="toggleRoomMenu(this,'rooms')">
+      </div>
     </div>
     <div class="icon-bar">
-      <!-- <button class="active"><i class="fa fa-envelope"></i></button> -->
-      <button onclick="toggleMagnifier(true)"><i class="fa fa-search-plus"></i></button>
+      <!--&lt;!&ndash; <button class="active"><i class="fa fa-envelope"></i></button> &ndash;&gt;-->
+      <!--<button onclick="toggleMagnifier(true)"><i class="fa fa-search-plus"></i></button>-->
       <button onclick="download()"><i class="fa fa-download"></i></button>
     </div>
     <div class="scene" id="scene">
       <!-- Scene Layer -->
-      <canvas class="mainCanvas" id="baseLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="mergedImageLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 0; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
-      <canvas class="mainCanvas" id="floorGroutLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="baseLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 1; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
-      <canvas class="mainCanvas" id="floorTileLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="floorGroutLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 2; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
-      <canvas class="mainCanvas" id="wallGroutLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="floorTileLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 3; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
-      <canvas class="mainCanvas" id="wallTileLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="wallGroutLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 4; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
-      <canvas class="mainCanvas" id="glassLayer" width="950" height="713"
+      <canvas class="mainCanvas" id="wallTileLayer" width="950" height="713"
         style="position: absolute; top:0; left:0; z-index: 5; background-color: transparent" onclick="closeActiveNavigationMenu()">
+        Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
+      </canvas>
+      <canvas class="mainCanvas" id="glassLayer" width="950" height="713"
+        style="position: absolute; top:0; left:0; z-index: 6; background-color: transparent" onclick="closeActiveNavigationMenu()">
         Sorry, <strong>CANVAS</strong> is not supported by your browser. Get a more recent one to play my game!
       </canvas>
 
@@ -88,16 +117,17 @@
     <img id="ceresit-logo" src="src/img/ui/ceresit_logo.png" alt="">
     <select id="language-dropdown" onchange="changeLanguage()">
       <option class="language" value="English">English</option>
-      <option class="language" value="German">Deutsche</option>
-      <option class="language" value="Lithuanian">Lietuvis</option>
       <option class="language" value="Estonian">Eestlane</option>
+      <option class="language" value="German">Deutsche</option>
+      <option class="language" value="Latvian">Latvijas</option>
+      <option class="language" value="Lithuanian">Lietuvis</option>
       <option class="language" value="Russian">русский</option>
     </select>
     <!--<input type="button" value="Click Me" style="position: absolute;">-->
 
     <div class="sub-menu" id="floor-grout-menu">
       <div class="menu-header" id="floor-grout-menu-header">
-        <h3>Grout Name</h3>
+        <nav>Grout Name</nav>
       </div>
       <div class="btn-group" id="floor-btn-group">
         <!-- <button type="button" class="btn floor-grout-btn">Apple<div class="button-description">CE40</div></button> -->
@@ -105,27 +135,27 @@
     </div>
     <div class="sub-menu" id="wall-grout-menu">
       <div class="menu-header" id="wall-grout-menu-header">
-        <h3>Wall Grouts</h3>
+        <nav>Wall Grouts</nav>
       </div>
       <div class="btn-group" id="wall-grout-btn-group">
       </div>
     </div>
     <div class="sub-menu" id="wall-tile-menu">
       <div class="menu-header" id="wall-tile-menu-header">
-        <h3>Wall Tiles</h3>
+        <nav>Wall Tiles</nav>
       </div>
       <div class="btn-group" id="wall-tile-btn-group">
       </div>
     </div>
     <div class="sub-menu" id="floor-tile-menu">
       <div class="menu-header" id="floor-tile-menu-header">
-        <h3>Floor Tiles</h3>
+        <nav>Floor Tiles</nav>
       </div>
       <div class="btn-group" id="floor-tile-btn-group"></div>
     </div>
     <div class="sub-menu" id="rooms" onload="0">
       <div class="menu-header" id="room-menu-header">
-        <h3>Outdoor</h3>
+        <nav>Exterior</nav>
       </div>
       <div class="btn-group">
         <button type="button" class="btn room-btn active" id="exterior-button" onclick="changeRoom(0, this)"
@@ -147,7 +177,11 @@
   </div>
   <script>
     changeRoom(0, document.getElementById('exterior-button'));
-    <!---->\magnify('baseLayer', 2);
+    <!--magnify('baseLayer', 2);-->
+    <!--magnify('floorGroutLayer', 2);-->
+    <!--magnify('floorTileLayer', 2);-->
+    <!--magnify('wallGroutLayer', 2);-->
+    <!--magnify('floorTileLayer', 2);-->
     <!--var baseCanvas = document.getElementById("baseLayer");-->
     <!--var baseCanvasCtx = baseCanvas.getContext("2d");-->
     <!--var baseImage = new Image();-->
