@@ -1,0 +1,96 @@
+.grout-menu {
+  position: relative;
+  display: block;
+  height: 100px;
+  width: 400px;
+  margin-bottom: 1px;
+}
+
+.grout-button {
+  position: absolute;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  left: 0px;
+  cursor: pointer;
+  height: 100px;
+  width: 400px;
+  opacity: 0;
+}
+
+#grout-button-selection {
+  width: 395px;
+  height: 95px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  opacity: 0;
+}
+
+#grout-button-bg {
+  width: 395px;
+  height: 95px;
+  background-image: url("../src/img/ui/grout-button-bg.png");
+  opacity: 0.8;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+#thumbnail {
+  position: absolute;
+  left: 0px;
+  width: 80px;
+  height: 80px;
+  color: white;
+  top: 10px;
+  left: 10px;
+}
+
+#grout-color-number {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  font-size: 16px;
+  color: white;
+  font-family: 'Nunito Sans';
+  text-align: right;
+}
+
+#grout-color-name {
+  position: absolute;
+  top: 2px;
+  left: 100px;
+  font-size: 18px;
+  color: white;
+  font-family: 'Nunito Sans';
+  font-weight: bold;
+  text-align: left;
+}
+
+#grout-product-id {
+  position: absolute;
+  bottom: 2px;
+  left: 100px;
+  color: white;
+  font-size: 16px;
+  font-family: 'Nunito Sans';
+  font-weight: bold;
+  text-align: left;
+}
+
+#grout-sub-name {
+  position: absolute;
+  top: 25px;
+  left: 100px;
+  color: white;
+  font-family: 'Nunito Sans';
+  text-align: left;
+}
+
+#grout-color-change {
+  -webkit-mask-box-image: url(http://www.clker.com/cliparts/F/5/I/M/f/U/running-icon-white-on-transparent-background-md.png);
+}

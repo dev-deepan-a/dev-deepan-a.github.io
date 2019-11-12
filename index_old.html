@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ceresit</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <img id="scene" src="//:0" width="0" height="0">
+  <img id="floor_grout" src="//:0" width="0" height="0">
+  <img id="wall_grout" src="//:0" width="0" height="0">
+  <img id="floor_tile" src="//:0" width="0" height="0" />
+  <img id="wall_tile" src="//:0" width="0" height="0" />
+  <canvas id="mainCanvas" width="1920" height="1080"> </canvas>
+  <script>
+    window.onload = function() {
+      var c = document.getElementById("mainCanvas");
+      var ctx = c.getContext("2d");
+      var img = document.getElementById("scene");
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = "src/img/Scene.png";
+    }
+  </script>
+  <button onclick="changeGrout()">Change Grout</button>
+  <script>
+    function changeGrout() {
+      var c = document.getElementById("mainCanvas");
+      var ctx = c.getContext("2d");
+      var img = document.getElementById("floor_grout");
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = "src/img/FloorGrout.png";
+    }
+  </script>
+
+  <button onclick="changeFloorTile()">Change Floor Tile</button>
+  <script>
+    function changeFloorTile() {
+      var c = document.getElementById("mainCanvas");
+      var ctx = c.getContext("2d");
+      var img = document.getElementById("floor_tile");
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = "src/img/FloorTile.png";
+    }
+  </script>
+
+  <button onclick="changeWallGrout()">Change Wall Grout</button>
+  <script>
+    function changeWallGrout() {
+      var c = document.getElementById("mainCanvas");
+      var ctx = c.getContext("2d");
+      var img = document.getElementById("wall_grout");
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = "src/img/WallGrout.png";
+    }
+  </script>
+  <button onclick="changeWallTile()">Change Wall Tile</button>
+  <script>
+    function changeWallTile() {
+      var c = document.getElementById("mainCanvas");
+      var ctx = c.getContext("2d");
+      var img = document.getElementById("wall_tile");
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = "src/img/WallTile.png";
+    }
+  </script>
+</body>
+
+</html>

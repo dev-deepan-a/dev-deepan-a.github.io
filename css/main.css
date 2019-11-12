@@ -1,0 +1,12 @@
+body, html {
+  height: 75%;
+}
+
+.bg {
+  /* Full height */
+  height: 75%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+}
