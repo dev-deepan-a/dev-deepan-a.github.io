@@ -91,12 +91,19 @@ html {
     top: 65px;
     right:0px;
     z-index: 7;
+    background-color: black;
+    color: white;
 }
 
 @media only screen and (max-width: 640px) {
   #language-dropdown{
     top: 6.5%;
   }
+}
+
+.language
+{
+    color: white;
 }
 
 .menu {
@@ -235,7 +242,7 @@ html {
     width: 0;
     bottom: 0;
     left: 0;
-    padding-top: 50px;
+    padding-top: 60px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -513,7 +520,7 @@ html {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-row-gap: 5px;
-    padding-top: 25px;
+    padding-top: 0px;
     padding-left: 10px;
     /* padding-bottom: 10px; */
     overflow-y: auto;

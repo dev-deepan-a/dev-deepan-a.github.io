@@ -13,4 +13,6 @@ function download() {
     link.download = "my-image.png";
     link.href = downloadImage;
     link.click();
+    var downloadCanvasCtx = downloadCanvas.getContext("2d");
+    downloadCanvasCtx.clearRect(0, 0, downloadCanvas.width, downloadCanvas.height);
 }

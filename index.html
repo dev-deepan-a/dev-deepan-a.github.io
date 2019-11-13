@@ -19,6 +19,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <!-- <script type="text/javascript" src="js/ui/draw_ui.js"></script> -->
   <!-- <script type="text/javascript" src="js/event_manager.js"></script> -->
+  <script type="text/javascript" src="js/languages.js"></script>
   <script type="text/javascript" src="js/appManager.js"></script>
   <script type="text/javascript" src="js/changeRoom.js"></script>
   <script type="text/javascript" src="js/downloader.js"></script>
@@ -79,7 +80,7 @@
     </div>
     <div class="icon-bar">
       <!--&lt;!&ndash; <button class="active"><i class="fa fa-envelope"></i></button> &ndash;&gt;-->
-      <!--<button onclick="toggleMagnifier(true)"><i class="fa fa-search-plus"></i></button>-->
+      <button onclick="toggleMagnifier(true)"><i class="fa fa-search-plus"></i></button>
       <button onclick="download()"><i class="fa fa-download"></i></button>
     </div>
     <div class="scene" id="scene">
@@ -117,11 +118,22 @@
     <img id="ceresit-logo" src="src/img/ui/ceresit_logo.png" alt="">
     <select id="language-dropdown" onchange="changeLanguage()">
       <option class="language" value="English">English</option>
+      <option class="language" value="BY">BY</option>
+      <option class="language" value="BIH">BIH</option>
+      <option class="language" value="Bulgarian">български</option>
+      <option class="language" value="Croatian">Hrvatski</option>
+      <option class="language" value="Czech">čeština</option>
       <option class="language" value="Estonian">Eestlane</option>
       <option class="language" value="German">Deutsche</option>
+      <option class="language" value="Hungarian">Magyar</option>
       <option class="language" value="Latvian">Latvijas</option>
       <option class="language" value="Lithuanian">Lietuvis</option>
+      <option class="language" value="Polish">Polskie</option>
+      <option class="language" value="Romanian">Română</option>
       <option class="language" value="Russian">русский</option>
+      <option class="language" value="Serbian">Српски</option>
+      <option class="language" value="Slovak">slovenský</option>
+      <option class="language" value="Slovenian">slovenščina</option>
     </select>
     <!--<input type="button" value="Click Me" style="position: absolute;">-->
 
@@ -280,5 +292,4 @@
 
   </script>
 </body>
-
 </html>

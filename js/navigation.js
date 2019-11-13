@@ -84,6 +84,138 @@ var ui_text_names =
     "Living01": "Dzīvojamā istaba",
     "Exterior01": "Ārā",
     "Bath01": "Vannas istaba"
+  },
+  "BY": {
+    "floorGroutText": "Grīdas šuve",
+    "wallGroutText": "Sienas šuve",
+    "floorTileText": "Grīdas flīze",
+    "wallTileText": "Sienas flīze",
+    "roomsText": "Telpas",
+    "Kitchen01": "Кухня",
+    "Kitchen02": "Кухня",
+    "Living01": "Жилая комната",
+    "Exterior01": "Терраса",
+    "Bath01": "Ванная комната"
+  },
+  "BIH": {
+    "floorGroutText": "Podna fuga",
+    "wallGroutText": "Zidna fuga",
+    "floorTileText": "Podne pločice",
+    "wallTileText": "Zidne pločice",
+    "roomsText": "Prostorije",
+    "Kitchen01": "Kuhinja",
+    "Kitchen02": "Kuhinja",
+    "Living01": "Dnevna soba",
+    "Exterior01": "Vanjski",
+    "Bath01": "kupatilo"
+  },
+  "Czech": {
+    "floorGroutText": "Potěr",
+    "wallGroutText": "Spárovací hmota",
+    "floorTileText": "Dlažba",
+    "wallTileText": "Obklad",
+    "roomsText": "Pokoje",
+    "Kitchen01": "kuchyně",
+    "Kitchen02": "kuchyně",
+    "Living01": "obývací pokoj",
+    "Exterior01": "venkovní",
+    "Bath01": "koupelna"
+  },
+  "Slovak": {
+    "floorGroutText": "Škárovacia hmota",
+    "wallGroutText": "Škárovacia hmota",
+    "floorTileText": "Dlažba",
+    "wallTileText": "Obklad",
+    "roomsText": "Izba",
+    "Kitchen01": "Kuchyňa",
+    "Kitchen02": "Kuchyňa",
+    "Living01": "obývačka",
+    "Exterior01": "vonkajšie",
+    "Bath01": "kúpeľňa"
+  },
+  "Croatian": {
+    "floorGroutText": "Podna fugirna masa",
+    "wallGroutText": "Zidna fugirna masa",
+    "floorTileText": "Podne pločice",
+    "wallTileText": "Zidne pločice",
+    "roomsText": "Sobe",
+    "Kitchen01": "kuhinja",
+    "Kitchen02": "kuhinja",
+    "Living01": "dnevna soba",
+    "Exterior01": "vanjski",
+    "Bath01": "kupaonica"
+  },
+  "Slovenian": {
+    "floorGroutText": "Talne fuge",
+    "wallGroutText": "Stenske fuge",
+    "floorTileText": "Talna keramika",
+    "wallTileText": "Stenska keramika",
+    "roomsText": "Sobe",
+    "Kitchen01": "kuhinja",
+    "Kitchen02": "kuhinja",
+    "Living01": "dnevna soba",
+    "Exterior01": "na prostem",
+    "Bath01": "kopalnica"
+  },
+  "Polish": {
+    "floorGroutText": "Fuga na podłodze",
+    "wallGroutText": "Fuga na ścianie",
+    "floorTileText": "Płytki podłogowe",
+    "wallTileText": "Płytki ścienne",
+    "roomsText": "Pomieszczenia",
+    "Kitchen01": "Kuchnia",
+    "Kitchen02": "Kuchnia",
+    "Living01": "salon",
+    "Exterior01": "na wolnym powietrzu",
+    "Bath01": "łazienka"
+  },
+  "Romanian": {
+    "floorGroutText": "Chit de rosturi",
+    "wallGroutText": "Chit de rosturi",
+    "floorTileText": "Gresie",
+    "wallTileText": "Faianta",
+    "roomsText": "Camere",
+    "Kitchen01": "bucătărie",
+    "Kitchen02": "bucătărie",
+    "Living01": "sufragerie",
+    "Exterior01": "în aer liber",
+    "Bath01": "baie"
+  },
+  "Hungarian": {
+    "floorGroutText": "Padló fugaszín",
+    "wallGroutText": "Fal fugaszín",
+    "floorTileText": "Padlóburkolat szín",
+    "wallTileText": "Falburkolat szín",
+    "roomsText": "Helyiségek",
+    "Kitchen01": "konyha",
+    "Kitchen02": "konyha",
+    "Living01": "nappali",
+    "Exterior01": "szabadtéri",
+    "Bath01": "fürdőszoba"
+  },
+  "Serbian": {
+    "floorGroutText": "Padló fugaszín",
+    "wallGroutText": "Fal fugaszín",
+    "floorTileText": "Padlóburkolat szín",
+    "wallTileText": "Falburkolat szín",
+    "roomsText": "Helyiségek",
+    "Kitchen01": "кухиња",
+    "Kitchen02": "кухиња",
+    "Living01": "дневна соба",
+    "Exterior01": "напољу",
+    "Bath01": "купатило"
+  },
+  "Bulgarian": {
+    "floorGroutText": "Podna boja fuge",
+    "wallGroutText": "Zidna boja fuge",
+    "floorTileText": "Podne pločice",
+    "wallTileText": "Zidne pločice",
+    "roomsText": "Prostorije",
+    "Kitchen01": "кухня",
+    "Kitchen02": "кухня",
+    "Living01": "хол",
+    "Exterior01": "на открито",
+    "Bath01": "баня"
   }
 }
 
@@ -205,6 +337,7 @@ function toggleRoomMenu(inputElement, menuName) {
     var spanElement = document.getElementById("roomsText");
     if (roomMenu) {
         if (!isRoomMenuOpen) {
+            console.log("opening room Menu");
             if (activeMenu != null && activeMenu != roomMenu) {
                 hidePreviousActiveMenu();
             }
@@ -214,6 +347,7 @@ function toggleRoomMenu(inputElement, menuName) {
             openNav(menuName);
             setFontColor(spanElement, "black");
         } else {
+            console.log("closing room Menu");
             inputElement.src = "src/img/ui/rooms_default.png";
             closeNav(menuName);
             isRoomMenuOpen = false;
@@ -274,8 +408,12 @@ function closeActiveNavigationMenu() {
         resetActiveFontColor(activeMenu.id);
         closeNav(activeMenu.id);
         loadDefaultMenuIcons();
+        isRoomMenuOpen = false;
+        isFloorTileMenuOpen = false;
+        isFloorTileMenuOpen = false;
+        isGroutMenuOpen = false;
+        isWallGroutMenuOpen = false;
         console.log("Closing active menu");
-
     }
 }
 

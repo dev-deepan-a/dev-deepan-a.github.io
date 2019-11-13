@@ -3,17 +3,19 @@ var doesMouseEntered = false;
 var glass, img;
 
 function magnify(imgID, zoom) {
-    console.log(roomName);
     var w, h, bw;
     var canvas = document.getElementById(imgID);
-    if (img == null) {
-        img = new Image();
-    }
-    if (window.innerWidth >= 640) {
-        img.src = "src/img/" + roomName + "_L.jpg"
-    } else if (window.innerWidth <= 640) {
-        img.src = "src/img/" + roomName + "_P.jpg"
-    }
+    img = new Image();
+    img.src = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+//    if (img == null) {
+//        img = new Image();
+//        img.src = downloadCanvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+//    }
+//    if (window.innerWidth >= 640) {
+//        img.src = canvas.getAttribute("imageSource");
+//    } else if (window.innerWidth <= 640) {
+//        img.src = "src/img/" + roomName + "_P.jpg"
+//    }
     // img = document.getElementById(imgID);
 
     // img.src = canvas.toDataURL();

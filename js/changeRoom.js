@@ -5,8 +5,18 @@ var wallTileCanvas = null;
 var floorGroutCanvas = null;
 var wallGroutCanvas = null;
 
+var isFloorGroutLayerLoaded = false;
+var isWallGroutLayerLoaded = false;
+var isWallTileLayerLoaded = false;
+var isFloorTileLayerLoaded = false;
+var isBaseLayerLoaded = false;
+var isGlassLayerLoaded = false;
+
 function changeRoom(roomIndex, currentButton) 
 {
+    isFloorGroutLayerLoaded = isWallGroutLayerLoaded = isWallTileLayerLoaded = isFloorTileLayerLoaded =
+    isBaseLayerLoaded = isGlassLayerLoaded = false;
+
     var roomButtons = document.getElementsByClassName("room-btn");
     for (i = 0; i < roomButtons.length; i++) {
         roomButtons[i].classList.remove("active");
@@ -53,7 +63,14 @@ function changeRoom(roomIndex, currentButton)
         }
         canvas.setAttribute("imageSource", image.src);
         ctx.drawImage(image, 0, 0);
-    }
+        isBaseLayerLoaded = true;
+        invokeMagnify();
+    };
+    image.onerror = function()
+    {
+        isBaseLayerLoaded = true;
+        invokeMagnify();
+    };
 
     if (window.innerWidth >= 640) {
         image.src = "src/img/" + roomName + "/Base_L.png"
@@ -79,6 +96,13 @@ function changeRoom(roomIndex, currentButton)
             }
             glassCanvas.setAttribute("imageSource", image2.src);
             glassCtx.drawImage(image2, 0, 0);
+            isGlassLayerLoaded = true;
+            invokeMagnify();
+        };
+        image2.onerror = function()
+        {
+            isGlassLayerLoaded = true;
+            invokeMagnify();
         }
 
         if (window.innerWidth >= 640) {
@@ -87,6 +111,11 @@ function changeRoom(roomIndex, currentButton)
         } else if (window.innerWidth <= 640) {
             image2.src = "src/img/" + roomName + "/BaseGlass_P.png"
         }
+    }
+    else
+    {
+        isGlassLayerLoaded = true;
+        invokeMagnify();
     }
 //    magnify('baseLayer', 2);
 
@@ -113,8 +142,13 @@ function changeRoom(roomIndex, currentButton)
         }
         floorGroutCanvas.setAttribute("imageSource", floorGroutImage.src);
         floorGroutCanvasCtx.drawImage(floorGroutImage, 0, 0);
-
-        loadFloorGrouts(roomName);
+        isFloorGroutLayerLoaded = true;
+        invokeMagnify();
+    };
+    floorGroutImage.onerror = function()
+    {
+        isFloorGroutLayerLoaded = true;
+        invokeMagnify();
     }
 
     if (window.innerWidth >= 640)
@@ -151,6 +185,13 @@ function changeRoom(roomIndex, currentButton)
         }
         floorTileCanvas.setAttribute("imageSource", floorTileImage.src);
         floorTileCanvasCtx.drawImage(floorTileImage, 0, 0);
+        isFloorTileLayerLoaded = true;
+        invokeMagnify();
+    };
+    floorTileImage.onerror = function()
+    {
+        isFloorTileLayerLoaded = true;
+        invokeMagnify();
     }
 
     if (window.innerWidth >= 640)
@@ -183,8 +224,13 @@ function changeRoom(roomIndex, currentButton)
 
         wallGroutCanvas.setAttribute("imageSource", wallGroutImage.src);
         wallGroutCanvasCtx.drawImage(wallGroutImage, 0, 0);
-
-        loadWallGrouts(roomName);
+        isWallGroutLayerLoaded = true;
+        invokeMagnify();
+    };
+    wallGroutImage.onerror = function()
+    {
+        isWallGroutLayerLoaded = true;
+        invokeMagnify();
     }
 
     if (window.innerWidth >= 640)
@@ -217,6 +263,13 @@ function changeRoom(roomIndex, currentButton)
         }
         wallTileCanvas.setAttribute("imageSource", wallTileImage.src);
         wallTileCanvasCtx.drawImage(wallTileImage, 0, 0);
+        isWallTileLayerLoaded = true;
+        invokeMagnify();
+    };
+    wallTileImage.onerror = function()
+    {
+        isWallTileLayerLoaded = true;
+        invokeMagnify();
     }
 
     if (window.innerWidth >= 640)
@@ -241,5 +294,20 @@ function changeRoomMenuHeaderName(headerName) {
     if (header) {
         var name = getRoomNameBasisLanguage(headerName);
         header.children[0].innerHTML = name;
+    }
+}
+
+function invokeMagnify()
+{
+    if(isBaseLayerLoaded && isGlassLayerLoaded && isFloorGroutLayerLoaded && isWallGroutLayerLoaded &&
+    isWallTileLayerLoaded && isFloorTileLayerLoaded)
+    {
+        console.log("entering");
+        createMergedImageLayer();
+        magnify("mergedImageLayer", 2);
+    }
+    else
+    {
+        console.log("not entering");
     }
 }
