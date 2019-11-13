@@ -62,7 +62,7 @@ function magnify(imgID, zoom) {
             x = pos.x;
             y = pos.y;
         }
-        else
+        if(e.type == "touchmove")
         {
             pos = e.targetTouches[0];
             x = pos.pageX;
