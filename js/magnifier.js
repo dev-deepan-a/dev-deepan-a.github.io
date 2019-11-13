@@ -106,6 +106,25 @@ function magnify(imgID, zoom) {
             y: y
         };
     }
+
+    function getTouchPos(e)
+    {
+        var a, x = 0,
+            y = 0;
+        e = e || window.event;
+        /*get the x and y positions of the image:*/
+        a = img.getBoundingClientRect();
+        /*calculate the cursor's x and y coordinates, relative to the image:*/
+        x = e.targetTouches[0].pageX - a.left;
+        y = e.targetTouches[0].pageY - a.top;
+        /*consider any page scrolling:*/
+        x = x - window.pageXOffset;
+        y = y - window.pageYOffset;
+        return {
+            x: x,
+            y: y
+        };
+    }
 }
 
 function toggleMagnifier(toggleValue) {
