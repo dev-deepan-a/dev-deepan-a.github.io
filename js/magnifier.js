@@ -55,9 +55,20 @@ function magnify(imgID, zoom) {
         /*prevent any other actions that may occur when moving over the image*/
         e.preventDefault();
         /*get the cursor's x and y positions:*/
-        pos = getCursorPos(e);
-        x = pos.x;
-        y = pos.y;
+        if(e.type == "mousemove")
+        {
+            console.log("mouse move event");
+            pos = getCursorPos(e);
+            x = pos.x;
+            y = pos.y;
+        }
+        else
+        {
+            pos = e.targetTouches[0];
+            x = pos.pageX;
+            y = pos.pageY;
+        }
+
         /*prevent the magnifier glass from being positioned outside the image:*/
         if (x > canvas.clientWidth - (w / zoom)) {
             x = canvas.clientWidth - (w / zoom);
