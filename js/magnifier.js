@@ -29,6 +29,12 @@ function magnify(imgID, zoom) {
                 toggleMagnifier(false);
             }
         );
+        glass.addEventListener("touchstart",
+            function()
+            {
+                toggleMagnifier(false);
+            }
+        );
         /*insert magnifier glass:*/
     }
 
