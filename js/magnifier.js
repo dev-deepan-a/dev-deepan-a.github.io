@@ -29,7 +29,7 @@ function magnify(imgID, zoom) {
                 toggleMagnifier(false);
             }
         );
-        glass.addEventListener("touchstart",
+        glass.addEventListener("touchend",
             function()
             {
                 toggleMagnifier(false);
@@ -63,16 +63,17 @@ function magnify(imgID, zoom) {
         /*get the cursor's x and y positions:*/
         if(e.type == "mousemove")
         {
-            console.log("mouse move event");
+            console.log("mouse move event 2");
             pos = getCursorPos(e);
             x = pos.x;
             y = pos.y;
         }
         if(e.type == "touchmove")
         {
-            pos = e.targetTouches[0];
-            x = pos.pageX;
-            y = pos.pageY;
+//            pos = e.targetTouches[0];
+            pos = getTouchPos(e);
+            x = pos.x;
+            y = pos.y;
         }
 
         /*prevent the magnifier glass from being positioned outside the image:*/
