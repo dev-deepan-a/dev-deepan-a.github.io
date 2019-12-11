@@ -1,0 +1,55 @@
+<html class="no-js" lang="pl-PL">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ceresit - Color Selector</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body style="overflow: hidden;">
+    <div id="root">
+        <main>
+            <section class="banner" style="display: none;"><img src="images/banner.jpg"
+                    alt="Color up your life with premium grouts"></section>
+            <section>
+                <article>
+                    <h2>Color selector</h2>
+                    <p>Select the room and use the bars of this interactive grout selector tool to set the color of your
+                        tiles and to find the best matching CE 40 color.</p>
+                    <div class="color-selector">
+                        <div class="color-selector-scene">
+                            <div class="color-selector-scene__toolbar"><button type="button"><i aria-hidden="true"
+                                        class="fa fa-search-plus"></i></button> <button type="button"
+                                    class="is-download"><i aria-hidden="true" class="fa fa-download"></i></button>
+                                <button type="button" class="is-fullscreen"><i aria-hidden="true"
+                                        class="fa fa-expand"></i>
+                                    <!----></button></div>
+                            <div class="color-selector-scene__canvas"><canvas class="lower-canvas" id="lower-canvas" width="1156.25"
+                                    height="780" style="width: 925px; height: 624px;"></canvas>
+                                <!---->
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("lower-canvas");
+        var ctx = canvas.getContext("2d");
+        var image = new Image();
+        image.onload = function () {
+            var imgWidth = window.innerWidth;
+            var imgHeight = window.innerHeight;
+            console.log(imgWidth);
+            console.log(imgHeight);
+            ctx.drawImage(image, 0, 0);
+        }
+        image.src = "src/img/Exterior_L.jpg";
+    </script>
+</body>
+
+</html>
