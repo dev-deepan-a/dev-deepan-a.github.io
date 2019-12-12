@@ -17,14 +17,31 @@ initializeS3();
 
 window.addEventListener('load', function() 
 {
-    document.querySelector('input[type="file"]').addEventListener('change', function() 
+    document.getElementById("img-upload-input").addEventListener('change', function() 
     {
         if (this.files && this.files[0]) 
         {
             selectedImage = this.files[0];
-            loadResultsPlaceholders();
+//            loadResultsPlaceholders();
             progressBar = document.getElementById("progress-value");
             hideFileUploadDiv();
+            hideUploadNextButton();
+            displayProgressBar();
+            startRecognition();
+        }
+    });
+    document.getElementById("next-img-upload-input").addEventListener('change', function() 
+    {
+        if (this.files && this.files[0]) 
+        {
+            selectedImage = this.files[0];
+            clearCanvas();
+            clearResults();
+            displayFileUploadDiv();
+//            loadResultsPlaceholders();
+            progressBar = document.getElementById("progress-value");
+            hideFileUploadDiv();
+            hideUploadNextButton();
             displayProgressBar();
             startRecognition();
         }
@@ -41,7 +58,7 @@ function startRecognition()
 }
 
 function initializeS3()
-{
+{   
     AWS.config.update({
       region: bucketRegion,
       credentials: new AWS.CognitoIdentityCredentials({
@@ -160,6 +177,8 @@ function process_result(result_content)
     
     result = JSON.parse(result_content);
     
+    var lastCropSelection = null;
+    
     for(var key in result){
         if(result[key][0]["similar_products"].length > 0){
             var bboxes = result[key][0].bounding_boxes;
@@ -183,12 +202,18 @@ function process_result(result_content)
 
             // create the hotspot button
             createHotspotButtonOnCropSelection(cropSelection);
-
+            
             // add the cropSelection div tag to the canvas
             var canvasArea = document.getElementById('canvas-container');
             canvasArea.appendChild(cropSelection);
+            
+            lastCropSelection = cropSelection;
         }
     }
+    
+    setCanvasTransparent(lastCropSelection);
+    currentSelectedDiv = lastCropSelection;
+    hideCropPreview(lastCropSelection);
     
     load_results(result_content);
 }
@@ -266,7 +291,11 @@ function createHotspotButtonOnCropSelection(cropSelection){
         setCanvasTransparent(currentSelectedDiv);
         currentSelectedDiv = this.parentElement;
         hideCropPreview(this.parentElement);
+        clearResults();
+        displayResultsForCurrentProduct(this.parentElement.getAttribute("name"));
     }
+    
+    return hotspotButton;
 }
 
 function displayCropPreview(btnParent){
@@ -297,7 +326,7 @@ function hideCropPreview(btnParent){
     var height = parseFloat(btnParent.getAttribute("height"));
     
     btnParent.style.borderStyle = "solid";
-    btnParent.style.borderColor = "lightgray";
+    btnParent.style.borderColor = "#04a0f7";
     btnParent.style.borderWidth = "2px";
     
     var imgData = context.getImageData(left, top, width, height);
@@ -325,7 +354,29 @@ function setCanvasTransparent(btnParent){
 }
 
 function clearCanvas(){
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    if(context != null && canvas != null)
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    var canvasArea = document.getElementById('canvas-container');
+    
+    console.log(canvasArea);
+    console.log(canvasArea.children.length);
+    console.log(canvasArea.children[0]);
+    
+    var child = canvasArea.lastElementChild; 
+    while (child) { 
+        if(canvasArea.children.length == 1)
+            child = null;
+        else{
+            canvasArea.removeChild(child);        
+            child = canvasArea.lastElementChild; 
+        }
+    }
+    
+    for(var i = 0; i < canvasArea.children.length; i++){
+        if(canvasArea.children[i].className == "cropSelection")
+            canvasArea.removeChild(canvasArea.children[i]);
+    }
 }
 
 function setCanvasOpaque(btnParent){
@@ -341,20 +392,6 @@ function setCanvasOpaque(btnParent){
     
     if(btnParent != null)
         btnParent.style.border = "none";
-}
-
-function changeProgressBar(){
-    var widthPercent = progressBar.style.width;
-    var width = parseInt(widthPercent.toString().replace('%', '')) + 5;
-    progressBar.style.width = width+'%';
-    progressBar.innerHTML = width+'%';
-    console.log('increasing the progress');
-    
-    if(width == 100){
-        clearInterval(progressCheck);
-        hideProgressBar();
-        drawSelectedImageOnCanvas();
-    }
 }
 
 function uuidv4() 

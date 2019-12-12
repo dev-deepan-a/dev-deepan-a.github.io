@@ -1,27 +1,29 @@
-var uploadNextButton = null;
+var uploadNextDiv = null;
+var uploadNextInputBtn = null;
 var progressBarDivTag = null;
+var progressDivTag = null;
 var fileUploadDivTag = null;
 
 window.onload = initialise;
 
 function initialise(){
-    uploadNextButton = document.getElementById("upload-next");
+    uploadNextDiv = document.getElementById("upload-next");
+    uploadNextInputBtn = document.getElementById("next-img-upload-input");
     fileUploadDivTag = document.getElementById('file-upload');
     progressBarDivTag = document.getElementById('progress-bar');
-    
-    uploadNextButton.onclick = function(){
-        hideCloseButton();
-        clearCanvas();
-        displayFileUploadDiv();
-    }
+    progressDivTag = document.getElementById('progress-value');
 }
 
 function displayUploadNextButton(){
-    uploadNextButton.style.display = "block";
+    uploadNextInputBtn.removeAttribute("disabled");
+    uploadNextInputBtn.style.cursor = "pointer";
+    uploadNextDiv.style.opacity = "100%";
 }
 
 function hideUploadNextButton(){
-    uploadNextButton.style.display = "none";
+    uploadNextInputBtn.setAttribute("disabled", "disabled");
+    uploadNextInputBtn.style.cursor = "default";
+    uploadNextDiv.style.opacity = "25%";
 }
 
 function hideFileUploadDiv(){
@@ -37,6 +39,20 @@ function displayProgressBar(){
 }
 
 function hideProgressBar(){
-    progressBarDivTag.style.width = "0%";
+    progressDivTag.style.width = "0%";
     progressBarDivTag.style.display = "none";
+}
+
+function changeProgressBar(){
+    var widthPercent = progressDivTag.style.width;
+    var width = parseInt(widthPercent.toString().replace('%', '')) + 5;
+    progressDivTag.style.width = width+'%';
+    console.log('increasing the progress');
+    
+    if(width == 100){
+        clearInterval(progressCheck);
+        hideProgressBar();
+        drawSelectedImageOnCanvas();
+        loadResultsPlaceholders();
+    }
 }
