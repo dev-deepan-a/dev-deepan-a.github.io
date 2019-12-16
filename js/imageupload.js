@@ -230,18 +230,8 @@ function calculateAspectRatioFit(img, canvasDivSize)
     {
         var scalingFactor = canvasDivSize.width/(canvasDivSize.height * aspectRatio);
         var resizedHeight = scalingFactor * canvasDivSize.height;
-        
-        if(resizedHeight > canvasDivSize.height){
-            resizedHeight = canvasDivSize.height;
-            scalingFactor = canvasDivSize.width/(resizedHeight * aspectRatio);
-            var resizedWidth = scalingFactor * resizedHeight;
-            resizedImageResolution = {width: resizedWidth, 
+        resizedImageResolution = {width: canvasDivSize.width, 
                                      height: resizedHeight};
-        }
-        else{
-            resizedImageResolution = {width: canvasDivSize.width, 
-                                     height: resizedHeight};
-        }
     }
 
     if(aspectRatio < 1)
