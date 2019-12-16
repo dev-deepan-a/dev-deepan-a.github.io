@@ -230,8 +230,18 @@ function calculateAspectRatioFit(img, canvasDivSize)
     {
         var scalingFactor = canvasDivSize.width/(canvasDivSize.height * aspectRatio);
         var resizedHeight = scalingFactor * canvasDivSize.height;
-        resizedImageResolution = {width: canvasDivSize.width, 
+        
+        if(resizedHeight > canvasDivSize.height){
+            resizedHeight = canvasDivSize.height;
+            scalingFactor = canvasDivSize.width/(resizedHeight * aspectRatio);
+            var resizedWidth = scalingFactor * resizedHeight;
+            resizedImageResolution = {width: resizedWidth, 
                                      height: resizedHeight};
+        }
+        else{
+            resizedImageResolution = {width: canvasDivSize.width, 
+                                     height: resizedHeight};
+        }
     }
 
     if(aspectRatio < 1)
@@ -242,8 +252,8 @@ function calculateAspectRatioFit(img, canvasDivSize)
                                      height: canvasDivSize.height};    
     }
     
-    console.log(img);
     console.log(canvasDivSize);
+    console.log(resizedImageResolution);
     
     return resizedImageResolution;
 }
