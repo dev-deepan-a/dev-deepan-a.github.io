@@ -148,14 +148,14 @@ function drawSelectedImageOnCanvas()
     img.onload = function()
     {
         imageCanvasCtx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
-        var canvasDivSize = {width: canvasContainer.parentElement.clientWidth, height: canvasContainer.parentElement.clientHeight};
+        var canvasDivSize = {width: canvasContainer.clientWidth, height: canvasContainer.clientHeight};
 
         var resizedImageResolution = calculateAspectRatioFit(img, canvasDivSize);
 
         canvasContainer.style.width = resizedImageResolution.width + 'px';
         canvasContainer.style.height = resizedImageResolution.height + 'px';
-        canvasContainer.width = resizedImageResolution.width;
-        canvasContainer.height = resizedImageResolution.height;
+//        canvasContainer.width = resizedImageResolution.width;
+//        canvasContainer.height = resizedImageResolution.height;
         imageCanvas.width = resizedImageResolution.width;
         imageCanvas.height = resizedImageResolution.height;
         imageCanvasCtx.drawImage(img, 0, 0, img.width, img.height,
@@ -239,6 +239,9 @@ function calculateAspectRatioFit(img, canvasDivSize)
         resizedImageResolution = {width: resizedWidth, 
                                      height: canvasDivSize.height};    
     }
+    
+    console.log(img);
+    console.log(canvasDivSize);
     
     return resizedImageResolution;
 }
